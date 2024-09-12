@@ -12,7 +12,9 @@ export default function NewEventsSection() {
     error,
   } = useQuery({
     queryKey: ['events'],
-    queryFn: fetchEvents
+    queryFn: fetchEvents,
+    staleTime: 5000,
+    // gcTime: 40000
   });
 
   let content;
