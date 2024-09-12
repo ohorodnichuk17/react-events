@@ -16,7 +16,7 @@ export default function FindEventSection() {
     error
   } = useQuery({
     queryKey: ['events', { search: searchTerm }],
-    queryFn: ({signal}) => fetchEvents({signal, searchTerm}),
+    queryFn: ({signal, queryKey}) => fetchEvents({signal, ...queryKey[1]}),
     enabled: searchTerm.trim() !== ''
   });
 
